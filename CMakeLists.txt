@@ -6,6 +6,9 @@
 
 cmake_minimum_required(VERSION 2.8)
 
+#
+# sparsehash is header only, so this is an easy CMakeLists.txt
+#
 project( sparsehash )
 
 if(NOT WIN32)
