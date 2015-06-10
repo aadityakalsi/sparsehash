@@ -35,7 +35,7 @@ if(NOT WIN32)
     COMMAND make install
     DEPENDS build.done)
   add_custom_target(
-    install_pkg
+    install
     COMMAND rm -fr ${CMAKE_INSTALL_PREFIX}/lib ${CMAKE_INSTALL_PREFIX}/share
     DEPENDS install.done)
 else()# Windows
@@ -44,7 +44,6 @@ else()# Windows
   file(COPY ${CMAKE_SOURCE_DIR}/src/sparsehash DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
   file(COPY ${CMAKE_SOURCE_DIR}/src/windows/google DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
   file(COPY ${CMAKE_SOURCE_DIR}/src/windows/sparsehash DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
-  add_custom_target(install_pkg COMMAND ${CMAKE_COMMAND} -E echo "Install done.")
+  add_custom_target(install COMMAND ${CMAKE_COMMAND} -E echo "Install done.")
 endif()
 
-add_dependencies(install install_pkg)
