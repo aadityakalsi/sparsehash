@@ -31,13 +31,9 @@ if(NOT WIN32)
     COMMAND make -j
     DEPENDS configure.done)
   add_custom_command(
-    OUTPUT install.done
+    OUTPUT install
     COMMAND make install
     DEPENDS build.done)
-  add_custom_target(
-    install
-    COMMAND rm -fr ${CMAKE_INSTALL_PREFIX}/lib ${CMAKE_INSTALL_PREFIX}/share
-    DEPENDS install.done)
 else()# Windows
   file(MAKE_DIRECTORY ${CMAKE_INSTALL_PREFIX}/include)
   file(COPY ${CMAKE_SOURCE_DIR}/src/google DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
